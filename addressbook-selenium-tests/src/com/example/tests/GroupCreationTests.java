@@ -9,9 +9,9 @@ public class GroupCreationTests extends TestBase {
 		goToGroupsPage();
 		initGroupCreation();
 		GroupData group = new GroupData();
-		group.groupName = "group name test";
-		group.groupHeader = "group header test";
-		group.groupFooter = "group footer test";
+		group.groupName = "Name";
+		group.groupHeader = "Header";
+		group.groupFooter = "Footer";
 		fillGroupForms(group);
 		submitGroupCreation();
 		returnToGroupsPage();
@@ -22,7 +22,10 @@ public class GroupCreationTests extends TestBase {
 		openMainPage();
 		goToGroupsPage();
 		initGroupCreation();
-		GroupData group = new GroupData("", "", "");
+		GroupData group = new GroupData();
+		group.groupName = "";
+		group.groupHeader = "";
+		group.groupFooter = "";
 		fillGroupForms(group);
 		submitGroupCreation();
 		returnToGroupsPage();

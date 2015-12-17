@@ -10,6 +10,7 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -102,6 +103,46 @@ public class TestBase {
 		} finally {
 			acceptNextAlert = true;
 		}
+	}
+
+	protected void returnToHomePage() {
+		driver.findElement(By.linkText("home page")).click();
+	}
+
+	protected void submitContactCreation() {
+		driver.findElement(By.name("submit")).click();
+	}
+
+	protected void fillContactForms(ContactData contact) {
+		driver.findElement(By.name("firstname")).clear();
+	    driver.findElement(By.name("firstname")).sendKeys(contact.contactFirstName);
+	    driver.findElement(By.name("lastname")).clear();
+	    driver.findElement(By.name("lastname")).sendKeys(contact.contactLastName);
+	    driver.findElement(By.name("address")).clear();
+	    driver.findElement(By.name("address")).sendKeys(contact.contactAdress);
+	    driver.findElement(By.name("home")).clear();
+	    driver.findElement(By.name("home")).sendKeys(contact.contactTelephoneHome);
+	    driver.findElement(By.name("mobile")).clear();
+	    driver.findElement(By.name("mobile")).sendKeys(contact.contactTelephoneMobile);
+	    driver.findElement(By.name("work")).clear();
+	    driver.findElement(By.name("work")).sendKeys(contact.contactTelephoneWork);
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys(contact.contactEmail);
+	    driver.findElement(By.name("email2")).clear();
+	    driver.findElement(By.name("email2")).sendKeys(contact.contactEmail2);
+	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contact.contactBirthdayDay);
+	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contact.contactBirthdayMonth);
+	    driver.findElement(By.name("byear")).clear();
+	    driver.findElement(By.name("byear")).sendKeys(contact.contactBirthdayYear);
+	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.contactGroup);
+	    driver.findElement(By.name("address2")).clear();
+	    driver.findElement(By.name("address2")).sendKeys(contact.contactSecondaryAdress);
+	    driver.findElement(By.name("phone2")).clear();
+	    driver.findElement(By.name("phone2")).sendKeys(contact.contactSecondaryTelephoneHome);
+	}
+
+	protected void initContactCreation() {
+		driver.findElement(By.linkText("add new")).click();
 	}
 
 }
