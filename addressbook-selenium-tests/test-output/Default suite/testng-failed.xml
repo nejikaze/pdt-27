@@ -3,29 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.example.tests.GroupCreationTests">
-        <methods>
-          <include name="testEmptyGroupCreation"/>
-          <include name="testNonEmptyGroupCreation"/>
-        </methods>
-      </class> <!-- com.example.tests.GroupCreationTests -->
-      <class name="com.example.tests.ContactCreationTests">
-        <methods>
-          <include name="testEmptyContactCreation"/>
-          <include name="testNonEmptyContactCreation"/>
-        </methods>
-      </class> <!-- com.example.tests.ContactCreationTests -->
-      <class name="com.example.tests.GroupModificationTests">
+      <class name="com.example.tests.ContactModificationTests">
         <methods>
           <include name="setUp"/>
-          <include name="tearDown"/>
+          <include name="modifyContactByIndex"/>
         </methods>
-      </class> <!-- com.example.tests.GroupModificationTests -->
-      <class name="com.example.tests.GroupRemovalTests">
-        <methods>
-          <include name="deleteSomeGroup"/>
-        </methods>
-      </class> <!-- com.example.tests.GroupRemovalTests -->
+      </class> <!-- com.example.tests.ContactModificationTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
