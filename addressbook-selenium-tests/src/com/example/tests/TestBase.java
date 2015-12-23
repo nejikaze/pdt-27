@@ -50,11 +50,11 @@ public class TestBase {
 	protected void fillGroupForms(GroupData group) {
 	
 		driver.findElement(By.name("group_name")).clear();
-		driver.findElement(By.name("group_name")).sendKeys(group.groupName);
+		driver.findElement(By.name("group_name")).sendKeys(group.name);
 		driver.findElement(By.name("group_header")).clear();
-		driver.findElement(By.name("group_header")).sendKeys(group.groupHeader);
+		driver.findElement(By.name("group_header")).sendKeys(group.header);
 		driver.findElement(By.name("group_footer")).clear();
-		driver.findElement(By.name("group_footer")).sendKeys(group.groupFooter);
+		driver.findElement(By.name("group_footer")).sendKeys(group.footer);
 	}
 
 	protected void initGroupCreation() {
@@ -115,30 +115,30 @@ public class TestBase {
 
 	protected void fillContactForms(ContactData contact) {
 		driver.findElement(By.name("firstname")).clear();
-	    driver.findElement(By.name("firstname")).sendKeys(contact.contactFirstName);
+	    driver.findElement(By.name("firstname")).sendKeys(contact.firstName);
 	    driver.findElement(By.name("lastname")).clear();
-	    driver.findElement(By.name("lastname")).sendKeys(contact.contactLastName);
+	    driver.findElement(By.name("lastname")).sendKeys(contact.lastName);
 	    driver.findElement(By.name("address")).clear();
-	    driver.findElement(By.name("address")).sendKeys(contact.contactAdress);
+	    driver.findElement(By.name("address")).sendKeys(contact.adress);
 	    driver.findElement(By.name("home")).clear();
-	    driver.findElement(By.name("home")).sendKeys(contact.contactTelephoneHome);
+	    driver.findElement(By.name("home")).sendKeys(contact.telephoneHome);
 	    driver.findElement(By.name("mobile")).clear();
-	    driver.findElement(By.name("mobile")).sendKeys(contact.contactTelephoneMobile);
+	    driver.findElement(By.name("mobile")).sendKeys(contact.telephoneMobile);
 	    driver.findElement(By.name("work")).clear();
-	    driver.findElement(By.name("work")).sendKeys(contact.contactTelephoneWork);
+	    driver.findElement(By.name("work")).sendKeys(contact.telephoneWork);
 	    driver.findElement(By.name("email")).clear();
-	    driver.findElement(By.name("email")).sendKeys(contact.contactEmail);
+	    driver.findElement(By.name("email")).sendKeys(contact.email);
 	    driver.findElement(By.name("email2")).clear();
-	    driver.findElement(By.name("email2")).sendKeys(contact.contactEmail2);
-	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contact.contactBirthdayDay);
-	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contact.contactBirthdayMonth);
+	    driver.findElement(By.name("email2")).sendKeys(contact.email2);
+	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(contact.birthdayDay);
+	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(contact.birthdayMonth);
 	    driver.findElement(By.name("byear")).clear();
-	    driver.findElement(By.name("byear")).sendKeys(contact.contactBirthdayYear);
-	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.contactGroup);
+	    driver.findElement(By.name("byear")).sendKeys(contact.birthdayYear);
+	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(contact.group);
 	    driver.findElement(By.name("address2")).clear();
-	    driver.findElement(By.name("address2")).sendKeys(contact.contactSecondaryAdress);
+	    driver.findElement(By.name("address2")).sendKeys(contact.secondaryAdress);
 	    driver.findElement(By.name("phone2")).clear();
-	    driver.findElement(By.name("phone2")).sendKeys(contact.contactSecondaryTelephoneHome);
+	    driver.findElement(By.name("phone2")).sendKeys(contact.secondaryTelephoneHome);
 	}
 
 	protected void initContactCreation() {

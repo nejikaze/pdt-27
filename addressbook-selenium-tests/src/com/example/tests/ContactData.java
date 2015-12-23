@@ -1,43 +1,43 @@
 package com.example.tests;
 
 public class ContactData {
-	public String contactFirstName;
-	public String contactLastName;
-	public String contactAdress;
-	public String contactTelephoneHome;
-	public String contactTelephoneMobile;
-	public String contactTelephoneWork;
-	public String contactEmail;
-	public String contactEmail2;
-	public String contactBirthdayDay;
-	public String contactBirthdayMonth;
-	public String contactBirthdayYear;
-	public String contactGroup;
-	public String contactSecondaryAdress;
-	public String contactSecondaryTelephoneHome;
+	public String firstName;
+	public String lastName;
+	public String adress;
+	public String telephoneHome;
+	public String telephoneMobile;
+	public String telephoneWork;
+	public String email;
+	public String email2;
+	public String birthdayDay;
+	public String birthdayMonth;
+	public String birthdayYear;
+	public String group;
+	public String secondaryAdress;
+	public String secondaryTelephoneHome;
 
 	public ContactData() {
 		
 	}
 	
-	public ContactData(String contactFirstName, String contactLastName, String contactAdress,
-			String contactTelephoneHome, String contactTelephoneMobile, String contactTelephoneWork,
-			String contactEmail, String contactEmail2, String contactBirthdayDay, String contactBirthdayMonth,
-			String contactBirthdayYear, String contactGroup, String contactSecondaryAdress,
-			String contactSecondaryTelephoneHome) {
-		this.contactFirstName = contactFirstName;
-		this.contactLastName = contactLastName;
-		this.contactAdress = contactAdress;
-		this.contactTelephoneHome = contactTelephoneHome;
-		this.contactTelephoneMobile = contactTelephoneMobile;
-		this.contactTelephoneWork = contactTelephoneWork;
-		this.contactEmail = contactEmail;
-		this.contactEmail2 = contactEmail2;
-		this.contactBirthdayDay = contactBirthdayDay;
-		this.contactBirthdayMonth = contactBirthdayMonth;
-		this.contactBirthdayYear = contactBirthdayYear;
-		this.contactGroup = contactGroup;
-		this.contactSecondaryAdress = contactSecondaryAdress;
-		this.contactSecondaryTelephoneHome = contactSecondaryTelephoneHome;
+	public ContactData(String firstName, String lastName, String adress,
+			String telephoneHome, String telephoneMobile, String telephoneWork,
+			String email, String email2, String birthdayDay, String birthdayMonth,
+			String birthdayYear, String group, String secondaryAdress,
+			String secondaryTelephoneHome) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.adress = adress;
+		this.telephoneHome = telephoneHome;
+		this.telephoneMobile = telephoneMobile;
+		this.telephoneWork = telephoneWork;
+		this.email = email;
+		this.email2 = email2;
+		this.birthdayDay = birthdayDay;
+		this.birthdayMonth = birthdayMonth;
+		this.birthdayYear = birthdayYear;
+		this.group = group;
+		this.secondaryAdress = secondaryAdress;
+		this.secondaryTelephoneHome = secondaryTelephoneHome;
 	}
 }
