@@ -1,10 +1,13 @@
 package com.example.fw;
 
+import java.util.List;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public abstract class BaseHelper {
@@ -68,4 +71,12 @@ public abstract class BaseHelper {
 		}
 	}
 
+	protected WebElement findElement(By locator) {
+		return driver.findElement(locator);
+	}
+	
+	protected List<WebElement> findElements(By locator) {	
+		return driver.findElements(locator);
+	}	
+	
 }
