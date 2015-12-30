@@ -17,10 +17,10 @@ public class GroupRemovalTests extends TestBase {
 
 		// save old state
 		List<GroupData> oldList = app.getGroupHelper().getGroups();
-		
+
 		// Хотя бы одна группа должна существовать
 		Random rnd = new Random();
-		int index = rnd.nextInt(oldList.size()-1);
+		int index = rnd.nextInt(oldList.size() - 1);
 
 		// actions
 		app.getGroupHelper().deleteGroup(index);

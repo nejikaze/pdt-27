@@ -70,14 +70,18 @@ public class ContactHelper extends BaseHelper {
 			contact.email = emailColumn.getText();
 			contact.telephoneHome = telephoneHomeColumn.getText();
 
-			if (contact.lastName == null)
+			if (contact.lastName == null) {
 				contact.lastName = "";
-			if (contact.firstName == null)
+			}
+			if (contact.firstName == null) {
 				contact.firstName = "";
-			if (contact.email == null)
+			}
+			if (contact.email == null) {
 				contact.email = "";
-			if (contact.telephoneHome == null)
+			}
+			if (contact.telephoneHome == null) {
 				contact.telephoneHome = "";
+			}
 
 			contacts.add(contact);
 		}

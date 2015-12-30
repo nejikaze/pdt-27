@@ -74,9 +74,9 @@ public abstract class BaseHelper {
 	protected WebElement findElement(By locator) {
 		return driver.findElement(locator);
 	}
-	
-	protected List<WebElement> findElements(By locator) {	
+
+	protected List<WebElement> findElements(By locator) {
 		return driver.findElements(locator);
-	}	
-	
+	}
+
 }

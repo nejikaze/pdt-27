@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertEquals;
 
 public class GroupCreationTests extends TestBase {
-	
+
 	@Test(dataProvider = "randomValidGroupGenerator")
 	public void testGroupCreationWithValidData(GroupData group) throws Exception {
 		app.getNavigationHelper().openMainPage();
