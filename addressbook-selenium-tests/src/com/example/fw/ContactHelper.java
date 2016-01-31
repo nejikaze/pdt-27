@@ -54,22 +54,17 @@ public class ContactHelper extends BaseHelper {
 	public void submitUpdateContact() {
 		click(By.xpath("//input[@value='Update']"));
 	}
-
+			
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
-		int numberOfLines = findElements(By.xpath("//tbody/tr")).size();
-		int columnNumber = 2;
-		for (int lineNumber = 2; lineNumber < numberOfLines; lineNumber++) {
-			WebElement lastNameColumn = findElement(By.xpath("//table/tbody/tr[" + lineNumber + "]/td[" + columnNumber + "]"));
-			WebElement firstNameColumn = findElement(By.xpath("//table/tbody/tr[" + lineNumber + "]/td[" + (columnNumber + 1) + "]"));
-			WebElement emailColumn = findElement(By.xpath("//table/tbody/tr[" + lineNumber + "]/td[" + (columnNumber + 2) + "]"));
-			WebElement telephoneHomeColumn = findElement(By.xpath("//table/tbody/tr[" + lineNumber + "]/td[" + (columnNumber + 3) + "]"));
+		List<WebElement> rows = getContactRows();
+		for (WebElement row : rows) {
 			ContactData contact = new ContactData();
-			contact.lastName = lastNameColumn.getText();
-			contact.firstName = firstNameColumn.getText();
-			contact.email = emailColumn.getText();
-			contact.telephoneHome = telephoneHomeColumn.getText();
-
+			contact.lastName = row.findElement(By.xpath(".//td[2]")).getText();
+			contact.firstName = row.findElement(By.xpath(".//td[3]")).getText();
+			contact.email = row.findElement(By.xpath(".//td[4]")).getText();
+			contact.telephoneHome = row.findElement(By.xpath(".//td[5]")).getText();
+			
 			if (contact.lastName == null) {
 				contact.lastName = "";
 			}
@@ -82,10 +77,15 @@ public class ContactHelper extends BaseHelper {
 			if (contact.telephoneHome == null) {
 				contact.telephoneHome = "";
 			}
-
-			contacts.add(contact);
-		}
+			
+			contacts.add(contact); 
+ 		}
 		return contacts;
+	}
+	
+	public List<WebElement> getContactRows() {
+		List<WebElement> rows = driver.findElements(By.xpath("//tr[@name='entry']"));
+		return rows;
 	}
 
 }
