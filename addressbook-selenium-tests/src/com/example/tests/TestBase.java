@@ -28,12 +28,11 @@ public class TestBase {
 	@DataProvider
 	public Iterator<Object[]> randomValidGroupGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();
-		for (int i = 0; i < 5; i++) {
-			GroupData group = new GroupData();
-			group.name = generateRandomString();
-			group.header = generateRandomString();
-			group.footer = generateRandomString();
-
+		for (int i = 0; i < 3; i++) {
+			GroupData group = new GroupData()
+					.withName(generateRandomString())
+					.withHeader(generateRandomString())
+					.withFooter(generateRandomString());
 			list.add(new Object[] { group });
 		}
 		return list.iterator();
@@ -43,21 +42,21 @@ public class TestBase {
 	public Iterator<Object[]> randomValidContactGenerator() {
 		List<Object[]> list = new ArrayList<Object[]>();
 		for (int i = 0; i < 3; i++) {
-			ContactData contact = new ContactData();
-			contact.firstName = generateRandomString();
-			contact.lastName = generateRandomString();
-			contact.adress = generateRandomString();
-			contact.telephoneHome = generateRandomString();
-			contact.telephoneMobile = generateRandomString();
-			contact.telephoneWork = generateRandomString();
-			contact.email = generateRandomString();
-			contact.email2 = generateRandomString();
-			contact.birthdayDay = generateRandomBirthdayDay();
-			contact.birthdayMonth = generateRandomBirthdayMonth();
-			contact.birthdayYear = generateRandomBirthdayYear();
-			// contact.group = "[none]";
-			contact.secondaryAdress = generateRandomString();
-			contact.secondaryTelephoneHome = generateRandomString();
+			ContactData contact = new ContactData()
+					.withFirstName(generateRandomString())
+					.withLastName(generateRandomString())
+					.withAdress(generateRandomString())
+					.withTelephoneHome(generateRandomString())
+					.withTelephoneMobile(generateRandomString())
+					.withTelephoneWork(generateRandomString())
+					.withEmail(generateRandomString())
+					.withEmail2(generateRandomString())
+					.withBirthdayDay(generateRandomBirthdayDay())
+					.withBirthdayMonth(generateRandomBirthdayMonth())
+					.withBirthdayYear(generateRandomBirthdayYear())
+					// contact.group = "[none]";
+					.withSecondaryAdress(generateRandomString())
+					.withSecondaryTelephoneHome(generateRandomString());
 
 			list.add(new Object[] { contact });
 		}
@@ -107,15 +106,15 @@ public class TestBase {
 	}
 
 	public void checkNullTelephoneAndEmail(ContactData contact) {
-		if (contact.telephoneHome.isEmpty()) {
-			if (contact.telephoneMobile.isEmpty()) {
-				contact.telephoneHome = contact.telephoneWork;
+		if (contact.getTelephoneHome().isEmpty()) {
+			if (contact.getTelephoneMobile().isEmpty()) {
+				contact.setTelephoneHome(contact.getTelephoneWork());
 			} else {
-				contact.telephoneHome = contact.telephoneMobile;
+				contact.setTelephoneHome(contact.getTelephoneMobile());
 			}
 		}
-		if (contact.email.isEmpty()) {
-			contact.email = contact.email2;
+		if (contact.getEmail().isEmpty()) {
+			contact.setEmail(contact.getEmail2());
 		}
 	}
 

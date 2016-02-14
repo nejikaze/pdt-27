@@ -1,20 +1,20 @@
 package com.example.tests;
 
 public class ContactData implements Comparable<ContactData> {
-	public String firstName;
-	public String lastName;
-	public String adress;
-	public String telephoneHome;
-	public String telephoneMobile;
-	public String telephoneWork;
-	public String email;
-	public String email2;
-	public String birthdayDay;
-	public String birthdayMonth;
-	public String birthdayYear;
-	public String group;
-	public String secondaryAdress;
-	public String secondaryTelephoneHome;
+	private String firstName;
+	private String lastName;
+	private String adress;
+	private String telephoneHome;
+	private String telephoneMobile;
+	private String telephoneWork;
+	private String email;
+	private String email2;
+	private String birthdayDay;
+	private String birthdayMonth;
+	private String birthdayYear;
+	private String group;
+	private String secondaryAdress;
+	private String secondaryTelephoneHome;
 
 	public ContactData() {
 
@@ -97,4 +97,142 @@ public class ContactData implements Comparable<ContactData> {
 		String contactDataOther = other.firstName.toLowerCase() + other.firstName.length() + other.lastName.toLowerCase() + other.lastName.length() + other.email.toLowerCase() + other.email.length() + other.telephoneHome.toLowerCase() + other.telephoneHome.length();
 		return contactData.compareTo(contactDataOther);
 	}
+
+	public ContactData withFirstName(String firstName) {
+		this.firstName = firstName;
+		return this;
+	}
+
+	public ContactData withLastName(String lastName) {
+		this.lastName = lastName;
+		return this;
+	}
+
+	public ContactData withAdress(String adress) {
+		this.adress = adress;
+		return this;
+	}
+
+	public ContactData withTelephoneHome(String telephoneHome) {
+		this.telephoneHome = telephoneHome;
+		return this;
+	}
+
+	public ContactData withTelephoneMobile(String telephoneMobile) {
+		this.telephoneMobile = telephoneMobile;
+		return this;
+	}
+
+	public ContactData withTelephoneWork(String telephoneWork) {
+		this.telephoneWork = telephoneWork;
+		return this;
+	}
+
+	public ContactData withEmail(String email) {
+		this.email = email;
+		return this;
+	}
+
+	public ContactData withEmail2(String email2) {
+		this.email2 = email2;
+		return this;
+	}
+
+	public ContactData withBirthdayDay(String birthdayDay) {
+		this.birthdayDay = birthdayDay;
+		return this;
+	}
+
+	public ContactData withBirthdayMonth(String birthdayMonth) {
+		this.birthdayMonth = birthdayMonth;
+		return this;
+	}
+
+	public ContactData withBirthdayYear(String birthdayYear) {
+		this.birthdayYear = birthdayYear;
+		return this;
+	}
+
+	public ContactData withSecondaryAdress(String secondaryAdress) {
+		this.secondaryAdress = secondaryAdress;
+		return this;
+	}
+
+	public ContactData withSecondaryTelephoneHome(String secondaryTelephoneHome) {
+		this.secondaryTelephoneHome = secondaryTelephoneHome;
+		return this;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public String getTelephoneHome() {
+		return telephoneHome;
+	}
+
+	public String getTelephoneMobile() {
+		return telephoneMobile;
+	}
+
+	public String getTelephoneWork() {
+		return telephoneWork;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getEmail2() {
+		return email2;
+	}
+
+	public String getBirthdayDay() {
+		return birthdayDay;
+	}
+
+	public String getBirthdayMonth() {
+		return birthdayMonth;
+	}
+
+	public String getBirthdayYear() {
+		return birthdayYear;
+	}
+
+	public String getGroup() {
+		return group;
+	}
+
+	public String getSecondaryAdress() {
+		return secondaryAdress;
+	}
+
+	public String getSecondaryTelephoneHome() {
+		return secondaryTelephoneHome;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setTelephoneHome(String telephoneHome) {
+		this.telephoneHome = telephoneHome;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 }
