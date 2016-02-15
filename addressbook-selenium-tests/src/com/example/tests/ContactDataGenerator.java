@@ -1,11 +1,15 @@
 package com.example.tests;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import com.thoughtworks.xstream.XStream;
 
 public class ContactDataGenerator {
 
@@ -32,19 +36,50 @@ public class ContactDataGenerator {
 		}
 	}
 
-	private static void saveContactToXmlFile(List<ContactData> groups, File file) {
-		
+	private static void saveContactToXmlFile(List<ContactData> contact,File file) throws IOException {
+		XStream xstream = new XStream();
+		xstream.alias("contact", ContactData.class);
+		String xml = xstream.toXML(contact);
+		FileWriter writer = new FileWriter(file);
+		writer.write(xml);
+		writer.close();
 
 	}
+	
+	public static List<ContactData> loadContactFromXmlFile(File file) {
+		XStream xstream = new XStream();
+		xstream.alias("contact", ContactData.class);
+		return (List<ContactData>) xstream.fromXML(file);
+	}
 
-	private static void saveContactToCsvFile(List<ContactData> contacts,File file) throws IOException {
-			FileWriter writer = new FileWriter(file);
-			for (ContactData contact : contacts) {
-				writer.write(contact.getFirstName() + "," + contact.getLastName() + "," + contact.getTelephoneHome() + "," + contact.getEmail() + "\n");
-			}
-			writer.close();
+	private static void saveContactToCsvFile(List<ContactData> contacts, File file) throws IOException {
+		FileWriter writer = new FileWriter(file);
+		for (ContactData contact : contacts) {
+			writer.write(contact.getFirstName() + "," + contact.getLastName() + "," + contact.getTelephoneHome() + ","
+					+ contact.getEmail() + ",!" + "\n");
 		}
+		writer.close();
+	}
 
+	public static List<ContactData> loadContactsFromCsvFile(File file) throws IOException {
+		List<ContactData> list = new ArrayList<ContactData>();
+		FileReader reader = new FileReader(file);
+		BufferedReader bufferedReader = new BufferedReader(reader);
+		String line = bufferedReader.readLine();
+		while (line != null) {
+			String[] part = line.split(",");
+			ContactData contact = new ContactData()
+					.withFirstName(part[0])
+					.withLastName(part[1])
+					.withTelephoneHome(part[2])
+					.withEmail(part[3]);
+			list.add(contact);
+			line = bufferedReader.readLine();
+		}
+		bufferedReader.close();
+		return list;
+	}
+	
 	public static List<ContactData> generateRandomContact(int amount) {
 		List<ContactData> list = new ArrayList<ContactData>();
 		for (int i = 0; i < amount; i++) {

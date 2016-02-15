@@ -31,7 +31,7 @@ public class TestBase {
 		return wraperGroupsForDataProvider(generateRandomGroups(5)).iterator();
 	}
 
-	private List<Object[]> wraperGroupsForDataProvider(List<GroupData> groups) {
+	public static List<Object[]> wraperGroupsForDataProvider(List<GroupData> groups) {
 		List<Object[]> list = new ArrayList<Object[]>();
 		for (GroupData group : groups){
     		list.add(new Object[]{group});
@@ -44,56 +44,14 @@ public class TestBase {
 		return wraperContactForDataProvider(generateRandomContact(5)).iterator();
 	}
 	
-    private List<Object[]> wraperContactForDataProvider(List<ContactData> contacts) {
+	public static List<Object[]> wraperContactForDataProvider(List<ContactData> contacts) {
     	List<Object[]> list = new ArrayList<Object[]>();
     	for (ContactData contact : contacts){
     		list.add(new Object[]{contact});
     	}
     	return list;
 	}
-/*
-	public String generateRandomString() {
 
-		Random rnd = new Random();
-		if (rnd.nextInt(4) == 0) {
-			return "";
-		} else {
-			return "test" + rnd.nextInt();
-		}
-	}
-
-	public String generateRandomBirthdayDay() {
-
-		Random rndBirthdayDay = new Random();
-		if (rndBirthdayDay.nextInt(4) == 0) {
-			return "-";
-		} else {
-			return String.valueOf(rndBirthdayDay.nextInt(31) + 1);
-		}
-	}
-
-	public String generateRandomBirthdayMonth() {
-
-		Random rndBirthdayMonth = new Random();
-		String[] month = new String[] { "January", "February", "March", "April", "May", "June", "July", "August",
-				"September", "October", "November", "December" };
-		if (rndBirthdayMonth.nextInt(4) == 0) {
-			return "-";
-		} else {
-			return String.valueOf(month[rndBirthdayMonth.nextInt(month.length)]);
-		}
-	}
-
-	public String generateRandomBirthdayYear() {
-
-		Random rndBirthdayYear = new Random();
-		if (rndBirthdayYear.nextInt(4) == 0) {
-			return "";
-		} else {
-			return String.valueOf(rndBirthdayYear.nextInt(2016));
-		}
-	}
-*/
 	public void checkNullTelephoneAndEmail(ContactData contact) {
 		if (contact.getTelephoneHome().isEmpty()) {
 			if (contact.getTelephoneMobile().isEmpty()) {
